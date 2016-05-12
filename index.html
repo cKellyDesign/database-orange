@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Database Orange | A Kidogo Data Collection Interface</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+	<!-- <nav class="navbar navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle">
+					
+				</button>
+			</div>
+		</div>
+	</nav> -->
+	<main class="container">
+
+
+
+	</main>
+	<div id="forms">
+
+		<!-- LOG IN VIEW -->
+		<div id="view-login">
+			<form action="javascript:dbo.submitLogin();">
+				<h2 class="form-login">Please Log In</h2>
+				<div class="form-group">
+					<label for="loginInputUsername" class="sr-only">Username</label>
+					<input type="text" id="loginInputUsername" class="form-control" placeholder="Username" required autofocus>
+				</div>
+				<div class="form-group">
+					<label for="loginInputPassword" class="sr-only">Password</label>
+					<input type="password" id="loginInputPassword" class="form-control" placeholder="Password" required>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input id="loginRemember" type="checkbox" value="staySignedIn">Stay Signed In
+					</label>
+				</div>
+				<button type="submit" class="btn btn-lg btn-primary btn-block">Log In</button>
+			</form>
+		</div>
+
+		<!-- Key Metric Domains View -->
+		<div id="view-domains">
+			<h3>Key Metric Domains</h3>
+			<a href="#" role="button" class="btn btn-default btn-block" onClick="dbo.render('view-registration')">Registration</a>
+			<a href="#" role="button" class="btn btn-default btn-block disabled" onClick="dbo.render('view-enrollment')">Enrollmment</a>
+			<a href="#" role="button" class="btn btn-default btn-block disabled" onClick="dbo.render('view-finance')">Finances</a>
+			<a href="#" role="button" class="btn btn-default btn-block" onClick="dbo.render('view-monthly-reports')">Montly Reports</a>
+		</div>
+
+		<div id="view-registration">
+			<h3>Registration Actions</h3>
+			<a href="#" role="button" class="btn btn-default btn-block" onClick="dbo.render('view-new-enrollment')">Child Enrollment Form</a>
+		</div>
+
+		<!-- Child Enrollment Form -->
+		<div id="view-new-enrollment">
+			<h3>Child Enrollment Form</h3>
+			<hr>
+			<form>
+				<h4>A. Child Information</h4>
+				<div class="form-group">
+				<label for="enrollChildName" class="sr-only">Child Name</label>
+				<input type="text" id="enrollChildName" name="child_name" class="form-control" placeholder="Child Name" required autofocus>
+				</div>
+
+				<div class="form-group">
+					<label for="enrollChildDoB" class="sr-only">Child Date of Birth</label>
+					<!-- <select id="selectbasic" name="child_birth_date" class="form-control">
+			      <option value="01">01</option>
+			      <option value="02">02</option>
+			      <option value="03">03</option>
+			      <option value="04">04</option>
+			      <option value="05">05</option>
+			      <option value="06">06</option>
+			      <option value="07">07</option>
+			      <option value="08">08</option>
+			      <option value="09">09</option>
+			      <option value="10">10</option>
+			      <option value="11">11</option>
+			      <option value="12">12</option>
+			      <option value="13">13</option>
+			      <option value="14">14</option>
+			      <option value="15">15</option>
+			      <option value="16">16</option>
+			      <option value="17">17</option>
+			      <option value="18">18</option>
+			      <option value="19">19</option>
+			      <option value="20">20</option>
+			      <option value="21">21</option>
+			      <option value="22">22</option>
+			      <option value="23">23</option>
+			      <option value="24">24</option>
+			      <option value="25">25</option>
+			      <option value="26">26</option>
+			      <option value="27">27</option>
+			      <option value="28">28</option>
+			      <option value="29">29</option>
+			      <option value="30">30</option>
+			      <option value="31">31</option>
+			    </select> -->
+					<input type="text" id="enrollChildDoB" name="child_date_of_birth" class="form-control" placeholder="Child Date of Birth" required autofocus>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label" for="child_gender">Child Gender</label>
+				  <br>
+			    <label class="radio-inline" for="child_gender-0">
+			      <input type="radio" name="child_gender" id="child_gender-0" value="girl">
+			      Girl
+			    </label> 
+			    <label class="radio-inline" for="child_gender-1">
+			      <input type="radio" name="child_gender" id="child_gender-1" value="boy">
+			      Boy
+			    </label>
+				</div>  
+
+			  <div class="form-group">
+				  <label class="control-label" for="child_submitted_forms">Submitted Forms</label>
+				  <div class="checkbox">
+				    <label for="child_submitted_forms-0">
+				      <input type="checkbox" name="child_submitted_forms" id="child_submitted_forms-0" value="birth_certificate">
+				      Birth Certificate
+				    </label>
+					</div>
+				  <div class="checkbox">
+				    <label for="child_submitted_forms-1">
+				      <input type="checkbox" name="child_submitted_forms" id="child_submitted_forms-1" value="health_clinic_card">
+				      Health Clinic Card
+				    </label>
+					</div>
+				  <div class="checkbox">
+				    <label for="child_submitted_forms-2">
+				      <input type="checkbox" name="child_submitted_forms" id="child_submitted_forms-2" value="immunization_records">
+				      Immunization Records
+				    </label>
+					</div>
+				  <div class="checkbox">
+				    <label for="child_submitted_forms-3">
+				      <input type="checkbox" name="child_submitted_forms" id="child_submitted_forms-3" value="caregivers_id_card">
+				      Caregiver(s) ID Card
+				    </label>
+					</div>
+				</div>
+
+				<hr>
+				<h4>B. Household Information</h4>
+				<div id="child-care-takers"></div>
+				<div class="form-group">
+					<a href="#" role="button" class="btn btn-primary btn-block" onClick="dbo.append('child-care-takers','child-care-giver'); return false;">+ Add Caretaker</a>
+				</div>
+
+				<div class="form-group">
+					<label for="child_physical_residence" class="sr-only">Physical Reisdence</label>
+					<textarea id="child_physical_residence" class="form-control" rows="3" name="child_physical_residence" placeholder="Physical Residence" required></textarea>
+				</div>
+
+				<div class="form-group">
+					<label>Any additional person(s) allowed to pick child?</label>
+					<div id="additional-adults"></div>
+					<a href="#" role="button" class="btn btn-primary btn-block" onClick="dbo.append('additional-adults','other-adults'); return false;">+ Add Person</a>
+				</div>
+
+				<hr>
+				<h4>Child Health Information</h4>
+				<div class="form-group">
+					<div class="form-group">
+						<label class="control-label" for="child_known_health_issues">Any known health issues?</label>
+					  <br>
+				    <label class="radio-inline">
+				      <input type="radio" name="child_known_health_issues" value="true">
+				      Yes
+				    </label> 
+				    <label class="radio-inline" >
+				      <input type="radio" name="child_known_health_issues" value="false">
+				      No
+				    </label>
+			    </div>
+			    <div class="form-group">
+						<label for="child_known_health_issue_specified" class="sr-only">If yes, please specifiy</label>
+						<textarea id="child_known_health_issue_specified" class="form-control" rows="3" name="child_known_health_issue_specified" placeholder="If yes, please specify"></textarea>
+			    </div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-group">
+						<label class="control-label" for="child_allergies">Any allergies (incl. drug reaction)?</label>
+					  <br>
+				    <label class="radio-inline">
+				      <input type="radio" name="child_allergies" value="true">
+				      Yes
+				    </label> 
+				    <label class="radio-inline" >
+				      <input type="radio" name="child_allergies" value="false">
+				      No
+				    </label>
+			    </div>
+			    <div class="form-group">
+						<label for="child_allergies_specified" class="sr-only">If yes, please specifiy</label>
+						<textarea id="child_allergies_specified" class="form-control" rows="3" name="child_allergies_specified" placeholder="If yes, please specify"></textarea>
+			    </div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-group">
+						<label class="control-label" for="child_regular_medications">Any regular medications?</label>
+					  <br>
+				    <label class="radio-inline">
+				      <input type="radio" name="child_regular_medications" value="true">
+				      Yes
+				    </label> 
+				    <label class="radio-inline" >
+				      <input type="radio" name="child_regular_medications" value="false">
+				      No
+				    </label>
+			    </div>
+			    <div class="form-group">
+						<label for="child_regular_medications_specified" class="sr-only">If yes, please specifiy</label>
+						<textarea id="child_regular_medications_specified" class="form-control" rows="3" name="child_regular_medications_specified" placeholder="If yes, please specify"></textarea>
+			    </div>
+				</div>
+
+				<div class="form-group">
+					<label for="child_other_medical_info" class="sr-only">Other Medical Information</label>
+					<textarea id="child_other_medical_info" class="form-control" rows="3" name="child_other_medical_info" placeholder="Other Medical Information"></textarea>
+				</div>
+
+				<hr>
+				<h4>C. Payment of School Fees</h4>
+				<div class="form-group">
+					<p>Kidogo centres charge school fees to ensure high-quality Early Childhood services for you and your child.  I understand and hereby agree to pay my child’s school fees, in full and on time throughout his/her participation in Kidogo Early Years:</p>
+					<div class="radio">
+				    <label class="radio">
+				      <input type="radio" name="consent_school_fees" value="true">
+				      Yes, I agree
+				    </label> 
+				  </div>
+				  <div class="radio">
+				    <label class="radio">
+				      <input type="radio" name="consent_school_fees" value="false">
+				      No, I do not
+				    </label>
+			    </div>
+				</div>
+
+				<hr>
+				<h4>D. Photo / Video Release</h4>
+				<div class="form-group">
+					<p>I hereby give Kidogo and its representative’s permission to use photographs or videos that include my child in media products for promotion, art, advertising, editorial, or other purpose. This may include but is not limited to newsletters (both print and email), posters, brochures, advertisement, post cards and web pages. I understand there will be no compensation / payment for participation and agree that this consent will remain effective throughout my child’s enrolment.	</p>
+					<div class="radio">
+				    <label class="radio">
+				      <input type="radio" name="consent_photo_video" value="true">
+				      Yes, I agree
+				    </label> 
+				  </div>
+				  <div class="radio">
+				    <label class="radio">
+				      <input type="radio" name="consent_photo_video" value="false">
+				      No, I do not
+				    </label>
+			    </div>
+				</div>
+
+				<hr>
+				<h4>E. Consent</h4>
+				<p>I hereby certify that all information provided within this form is true.  I accept my child to be admitted at Kidogo Early Years and have paid the posted enrollment fee.</p>
+				<div class="form-group">
+					<label for="consentor_name" class="sr-only">Consentor Name</label>
+					<input type="text" id="consentor_name" name="consentor_name" class="form-control" placeholder="Full Name" required>
+				</div>
+				<div class="checkbox">
+					<label for="consentor_consents">
+			      <input type="checkbox" name="consentor_consents" id="consentor_consents" value="true">
+			      I agree and consent.
+			    </label>
+				</div>
+
+				<hr>
+				<h4>For Official Use Only</h4>
+				<div class="form-group">
+					<label for="admitting_staff_name" class="sr-only">Admitting Staff Name</label>
+					<input type="text" id="admitting_staff_name" name="admitting_staff_name" class="form-control" placeholder="Admitting Staff Name" required>
+				</div>
+
+				<div class="form-group">
+					<label for="date_of_admission" class="sr-only">Date of Admission</label>
+					<input type="text" id="date_of_admission" name="date_of_admission" class="form-control" placeholder="Date of Admission" required>
+				</div>
+
+				<div class="form-group">
+					<label for="admission_number" class="sr-only">Admission Number</label>
+					<input type="text" id="admission_number" name="admission_number" class="form-control" placeholder="Admission Number" required>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label" for="enrollment_fee_paid">Enrollment Fee Paid</label>
+				  <br>
+			    <label class="radio-inline">
+			      <input type="radio" name="enrollment_fee_paid" value="true">
+			      Yes
+			    </label> 
+			    <label class="radio-inline" >
+			      <input type="radio" name="enrollment_fee_paid" value="false">
+			      No
+			    </label>
+		    </div>
+
+		    <div class="form-group">
+				  <label class="control-label" for="class_admitted">Class Admitted</label>
+			    <select id="class_admitted" name="class_admitted" class="form-control">
+			      <option value="baby_care">Baby Care</option>
+			      <option value="baby_class">Baby Class</option>
+			      <option value="nursery">Nursery</option>
+			      <option value="pre-unit">Pre-Unit</option>
+			    </select>
+				</div>
+
+				<div class="form-group">
+				  <label class="control-label" for="center_name">Center Name</label>
+			    <select id="center_name" name="center_name" class="form-control">
+			      <option value="kibera_hub">Kibera Hub</option>
+			      <option value="kibera_spoke_1">Kibera Spoke 1</option>
+			      <option value="kibera_spoke_2">Kibera Spoke 2</option>
+			      <option value="kibera_spoke_3">Kibera Spoke 3</option>
+			      <option value="kangemi_hub">Kangemi Hub</option>
+			      <option value="kangemi_spoke_1">Kangemi Spoke 1</option>
+			      <option value="kangemi_spoke_2">Kangemi Spoke 2</option>
+			      <option value="kangemi_spoke_3">Kangemi Spoke 3</option>
+			    </select>
+				</div>
+
+				<div class="form-group">
+					<label for="center_director" class="sr-only">Center Director</label>
+					<input type="text" id="center_director" name="center_director" class="form-control" placeholder="Center Director" required>
+				</div>
+				<div class="form-group">
+					<div class="checkbox">
+						<label for="center_director_acknowledged">
+				      <input type="checkbox" name="center_director_acknowledged" id="center_director_acknowledged" value="true">
+				      Child enrollment acknowledged by center director
+			    	</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-block">Submit and Review</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Child Caregiver Information -->
+		<div id="child-care-giver">
+			<div class="form-group">
+				<h5>Caregiver Information</h5>
+				<div class="form-group">
+					<label class="sr-only">Caregiver Name</label>
+					<input type="text" name="caregiver_name" class="form-control" placeholder="Caregiver Name" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">Caregiver Relationship</label>
+					<input type="text" name="caregiver_relationship" class="form-control" placeholder="Caregiver Relationship" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">Caregiver ID Number</label>
+					<input type="text" name="caregiver_id_number" class="form-control" placeholder="Caregiver ID Number" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">Caregiver Contact Number</label>
+					<input type="text" name="caregiver_contact_number" class="form-control" placeholder="Caregiver Contact Number" required>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="caregiver_can_pick">Allowed to Pick Child</label>
+				  <br>
+			    <label class="radio-inline">
+			      <input type="radio" name="caregiver_can_pick" value="true" checked="checked">
+			      Yes
+			    </label> 
+			    <label class="radio-inline" >
+			      <input type="radio" name="caregiver_can_pick" value="false">
+			      No
+			    </label>
+		    </div>
+			</div>
+		</div>
+
+		<!-- Other adutls allowed to pick child -->
+		<div id="other-adults">
+			<div class="form-group">
+				<h5>Additional Adult</h5>
+				<div class="form-group">
+					<label class="sr-only">Name</label>
+					<input type="text" name="adult_name" class="form-control" placeholder="Name" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">Contact</label>
+					<input type="text" name="adult_contact" class="form-control" placeholder="Contact" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only">Reisdence</label>
+					<textarea class="form-control" rows="3" name="adult_residence" placeholder="Residence" required></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div id="view-monthly-reports">
+			<h3>Montly Report Actions</h3>
+		</div>
+
+	</div>
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script src="/js/js.cookie.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/database-orange.js"></script>
+</body>
+</html>
